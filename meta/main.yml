@@ -47,7 +47,6 @@ galaxy_info:
     - name: "Ubuntu"
       versions:
         - "xenial"
-        - "16.04"
 
   galaxy_tags:
     - kubernetes
