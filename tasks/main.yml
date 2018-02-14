@@ -1,14 +1,14 @@
 ---
-- name: Delete {{ display_name }} service
+- name: Delete {{ name }} service
   shell: "kubectl delete service {{ name }} --namespace={{ ns }}"
   ignore_errors: yes
 
-- name: Wait for {{ display_name }} to be deleted
+- name: Wait for {{ name }} to be deleted
   shell: "kubectl get service --namespace={{ ns }}"
   register: result
   until: "result.stdout.find(name) == -1"
   retries: "{{ retry.max }}"
   delay: "{{ retry.delay }}"
 
-- name: Create {{ display_name }} service
+- name: Create {{ name }} service
   shell: "kubectl create -f {{ yamls }}/{{ name }}-service.yml"
