@@ -10,5 +10,5 @@
   retries: "{{ retry.max }}"
   delay: "{{ retry.delay }}"
 
-- name: Create {{ name }} service (from file: {{ yamls }}/{{ file }}-service.yml)
+- name: "Create {{ name }} service (from file: {{ yamls }}/{{ file }}-service.yml)"
   shell: "kubectl create -f {{ yamls }}/{{ file }}-service.yml"
