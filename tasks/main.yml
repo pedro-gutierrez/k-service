@@ -5,7 +5,7 @@
   when: with_list is not defined
 
 - name: "Delete {{ naming.prefix }} services"
-  shell: "kubectl delete service {{ naming-prefix }}-{{ item[naming.prop] }} --namespace={{ ns }}"
+  shell: "kubectl delete service {{ naming.prefix }}-{{ item[naming.prop] }} --namespace={{ ns }}"
   ignore_errors: yes
   with_items: "{{ with_list }}"
   when: with_list is defined and naming is defined
